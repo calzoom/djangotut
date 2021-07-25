@@ -15,12 +15,14 @@ class Topic(models.Model):
     last_update = models.DateTimeField(auto_now_add=True)
 
     """ 
-    Topic has only 1 board instance
+    models.ForeignKey(to, on_delete, **options) is a many-to-one relationship
     
     related_name creates a reverse relationship: each board instance will have access to 
     a list of Topic instances belonging to it
     """
-    board = models.ForeignKey(Board, related_name="topics")
+    board = models.ForeignKey(
+        Board, related_name="topics"
+    )  # Topic has only 1 board instance
     starter = models.ForeignKey(User, related_name="topics")  # Topic has only 1 starter
 
 
