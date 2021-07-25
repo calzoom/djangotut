@@ -7,8 +7,6 @@ from .models import Board
 # HttpRequest objects and return HttpResponse objects
 
 # Receive a request as a parameter and return a response as a result
-def home(reqeust):
+def home(request):
     boards = Board.objects.all()
-    board_names = [board.name for board in boards]
-    response_html = "<br>".join(board_names)
-    return HttpResponse(response_html)
+    return render(request, "home.html", {"boards": boards})
