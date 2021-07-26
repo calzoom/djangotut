@@ -26,7 +26,7 @@ class Topic(models.Model):
 
 
 class Post(models.Model):
-    messsage = models.TextField(max_length=4000)
+    message = models.TextField(max_length=4000)
     topic = models.ForeignKey(Topic, related_name="posts")  # Post has only 1 topic
 
     # auto_now_add tells Django to set current date when Post object is created
