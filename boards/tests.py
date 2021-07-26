@@ -25,7 +25,7 @@ class HomeTests(TestCase):
     def test_home_view_contains_link_to_topics_page(self):
         # testing if response body has "href=/boards/1/"
         board_topics_url = reverse("board_topics", kwargs={"pk": self.board.pk})
-        self.assertContains(self.response, "href={0}".format(board_topics_url))
+        self.assertContains(self.response, 'href="{0}"'.format(board_topics_url))
 
 
 class BoardTopicsTests(TestCase):
